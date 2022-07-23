@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'colors.dart' as colors;
 
 void main() {
@@ -44,18 +43,120 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      body: Container(
-        padding: const EdgeInsets.only(top: 50),
-        color: colors.Colors.backgroundColor,
-        child: Column(
-          children: const [
-            TopSection(),
-            SizedBox(height: 25,),
-            WelcomeSection(),
-            SizedBox(height: 25,),
-            InProgressSection()
-          ],
+      body: SingleChildScrollView(
+        child: Container(
+          height: 900,
+          padding: const EdgeInsets.only(top: 50),
+          color: colors.Colors.backgroundColor,
+          child: Column(
+            children: const [
+              TopSection(),
+              SizedBox(height: 25,),
+              WelcomeSection(),
+              SizedBox(height: 25,),
+              InProgressSection(),
+              SizedBox(height: 25,),
+              RecommendedSection()
+            ],
+          ),
         ),
+      ),
+    );
+  }
+}
+
+class RecommendedSection extends StatelessWidget {
+  const RecommendedSection({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 270,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 15, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Recommended',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 20,
+                  ),
+                ),
+                Icon(Icons.arrow_forward_rounded, color: colors.Colors.accentColor,)
+              ],
+            ),
+          ),
+          const SizedBox(height: 25,),
+          Expanded(
+            child: ListView(
+              padding: const EdgeInsets.only(left: 15, right: 15),
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: const [
+                RecommendedItemCard(),
+                SizedBox(width: 15,),
+                RecommendedItemCard(),
+                SizedBox(width: 15,),
+                RecommendedItemCard(),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class RecommendedItemCard extends StatelessWidget {
+  const RecommendedItemCard({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 250,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+                color: colors.Colors.iconBackgroundColor,
+                borderRadius: BorderRadius.circular(5)),
+            padding: const EdgeInsets.all(10),
+            child: Icon(
+              Icons.dark_mode_outlined,
+              color: colors.Colors.accentColor,
+              size: 40,
+            ),
+          ),
+          const SizedBox(height: 20,),
+          const Text(
+            'Happiness and Joyful',
+            style: TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.bold,
+              fontSize: 25,
+            ),
+          ),
+          const SizedBox(height: 20,),
+          Text(
+            '4 sessions',
+            style: TextStyle(
+              color: colors.Colors.secondaryTextColor,
+              fontWeight: FontWeight.normal,
+              fontSize: 15,
+            ),
+          ),
+        ],
       ),
     );
   }
@@ -81,7 +182,6 @@ class InProgressSection extends StatelessWidget {
           ),
           const SizedBox(height: 20,),
           Container(
-            //width: double.infinity,
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               color: Colors.white,
