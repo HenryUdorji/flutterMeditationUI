@@ -35,7 +35,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
     // This method is rerun every time setState is called, for instance as done
@@ -51,9 +50,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           children: const [
             TopSection(),
-
-            SizedBox(height: 20,),
-            
+            SizedBox(height: 25,),
             WelcomeSection(),
           ],
         ),
@@ -67,10 +64,53 @@ class WelcomeSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Padding(
+      padding: const EdgeInsets.only(left: 15, right: 15),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const Text(
+            'Welcome Back, Harald!',
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 25,
+            ),
+          ),
+          const SizedBox(height: 5,),
+          Text(
+            'Ready to start your day?',
+            style: TextStyle(
+              color: colors.Colors.secondaryTextColor,
+                fontWeight: FontWeight.normal,
+                fontSize: 15),
+          ),
+          const SizedBox(height: 35,),
+          Container(
+            padding: const EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: colors.Colors.grayColor,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: TextField(
+              keyboardType: TextInputType.text,
+              textInputAction: TextInputAction.search,
+              maxLines: 1,
+              decoration: InputDecoration(
+                hintText: 'Search themes here',
+                hintStyle: TextStyle(color: colors.Colors.secondaryTextColor),
+                prefixIcon: const Icon(Icons.search),
+                suffixIcon: const Icon(Icons.mic),
+                border: InputBorder.none,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
-
 
 class TopSection extends StatelessWidget {
   const TopSection({Key? key}) : super(key: key);
@@ -82,11 +122,18 @@ class TopSection extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Image.asset('assets/images/menu.png', width: 32, height: 32,),
-          Image.asset('assets/images/bell.png', width: 32, height: 32,)
+          Image.asset(
+            'assets/images/menu.png',
+            width: 32,
+            height: 32,
+          ),
+          Image.asset(
+            'assets/images/bell.png',
+            width: 32,
+            height: 32,
+          )
         ],
       ),
     );
   }
 }
-
