@@ -1,16 +1,10 @@
 # flutter_meditation_ui
 
-A new Flutter project.
+A Flutter project showcasing M.
 
-## Getting Started
+## Screenshot
+<img src="assets/img.pn" width="300" height="667"/>  
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Credits
+![Meditation App UI](https://dribbble.com/shots/12472574/attachments/4083553?mode=media) - By Farrel Putra
