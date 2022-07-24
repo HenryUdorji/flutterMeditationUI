@@ -98,11 +98,11 @@ class RecommendedSection extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               children: const [
-                RecommendedItemCard(),
+                RecommendedItemCard(title: 'Happiness and Joyful', session: '4', iconData: Icons.emoji_emotions_outlined,),
                 SizedBox(width: 15,),
-                RecommendedItemCard(),
+                RecommendedItemCard(title: 'Lovely and Beautiful Vibes', session: '7', iconData: Icons.favorite_border,),
                 SizedBox(width: 15,),
-                RecommendedItemCard(),
+                RecommendedItemCard(title: 'Soothing and Soulful', session: '2', iconData: Icons.ac_unit,),
               ],
             ),
           )
@@ -113,7 +113,12 @@ class RecommendedSection extends StatelessWidget {
 }
 
 class RecommendedItemCard extends StatelessWidget {
-  const RecommendedItemCard({Key? key}) : super(key: key);
+  const RecommendedItemCard({Key? key, required this.title, required this.session, required this.iconData}) : super(key: key);
+
+  final String title;
+  final String session;
+  final IconData iconData;
+
 
   @override
   Widget build(BuildContext context) {
@@ -133,15 +138,15 @@ class RecommendedItemCard extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5)),
             padding: const EdgeInsets.all(10),
             child: Icon(
-              Icons.dark_mode_outlined,
+              iconData,
               color: colors.Colors.accentColor,
               size: 40,
             ),
           ),
           const SizedBox(height: 20,),
-          const Text(
-            'Happiness and Joyful',
-            style: TextStyle(
+          Text(
+            title,
+            style: const TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
               fontSize: 25,
@@ -149,7 +154,7 @@ class RecommendedItemCard extends StatelessWidget {
           ),
           const SizedBox(height: 20,),
           Text(
-            '4 sessions',
+            '$session sessions',
             style: TextStyle(
               color: colors.Colors.secondaryTextColor,
               fontWeight: FontWeight.normal,
