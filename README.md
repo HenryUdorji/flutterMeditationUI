@@ -1,6 +1,6 @@
 # flutter_meditation_ui
 
-A Flutter project showcasing M.
+A Flutter project showcasing beautiful UI.
 
 ## Screenshot
 <img src="assets/img.png" width="300" height="667"/>  
