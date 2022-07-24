@@ -3,7 +3,7 @@
 A Flutter project showcasing M.
 
 ## Screenshot
-<img src="assets/img.pn" width="300" height="667"/>  
+<img src="assets/img.png" width="300" height="667"/>  
 
 
 ## Credits
